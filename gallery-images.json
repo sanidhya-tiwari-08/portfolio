@@ -1,0 +1,26 @@
+[
+  {
+    "src": "work/Breaking News Newsletter.png",
+    "type": "image",
+    "title": "Breaking News Newsletter",
+    "description": "Work sample: Breaking News Newsletter"
+  },
+  {
+    "src": "work/Digital Marketing Proposal.pdf",
+    "type": "pdf",
+    "title": "Digital Marketing Proposal",
+    "description": "Comprehensive marketing strategy document with campaign analysis and recommendations."
+  },
+  {
+    "src": "work/urban company ads 1.png",
+    "type": "image",
+    "title": "Urban Company Ads 1",
+    "description": "Work sample: urban company ads 1"
+  },
+  {
+    "src": "work/urban company ads.png",
+    "type": "image",
+    "title": "Urban Company Ads",
+    "description": "Work sample: urban company ads"
+  }
+]

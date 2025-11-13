@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanidhya Tiwari - Public Relations Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --light-bg: #ffffff;
+            --light-bg-2: #f8fafc;
+            --text-dark: #0f172a;
+            --text-gray: #0f172a;
+            --border-color: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f1f5f9 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .animated-bg::before,
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .animated-bg::before {
+            top: -250px;
+            left: -250px;
+            animation-delay: 0s;
+        }
+
+        .animated-bg::after {
+            bottom: -250px;
+            right: -250px;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+            50% { transform: translate(50px, 50px) scale(1.2); opacity: 0.8; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px var(--shadow);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 80%;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            background-size: 200% 200%;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero .subtitle {
+            font-size: 1.75rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .hero .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+        }
+
+        .hero .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--light-bg);
+            border-radius: 50px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 15px var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon {
+            color: var(--text-dark);
+            width: 1.5rem;
+            height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-icon svg {
+            width: 1.1rem;
+            height: 1.1rem;
+            fill: currentColor;
+        }
+
+        .contact-item:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .contact-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        section:first-of-type {
+            padding-top: 8rem;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            color: var(--text-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        /* Summary Section */
+        .summary {
+            background: var(--light-bg);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 10px 40px var(--shadow);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 45%;
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            animation: slideIn 0.6s ease-out both;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            animation-delay: 0.1s;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%;
+            animation-delay: 0.2s;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 2rem;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -35px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -35px;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .timeline-date {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .timeline-company {
+            color: var(--text-gray);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .timeline-list {
+            list-style: none;
+            padding-left: 0;
+            color: var(--text-gray);
+        }
+
+        .timeline-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--light-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            animation: fadeInScale 0.6s ease-out both;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .skill-category:nth-child(1) { animation-delay: 0.1s; }
+        .skill-category:nth-child(2) { animation-delay: 0.2s; }
+        .skill-category:nth-child(3) { animation-delay: 0.3s; }
+        .skill-category:nth-child(4) { animation-delay: 0.4s; }
+        .skill-category:nth-child(5) { animation-delay: 0.5s; }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            transform: scale(1.05);
+            border-color: var(--primary-color);
+        }
+
+        /* Education Cards */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .education-card {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 20px var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .education-card:nth-child(2) { animation-delay: 0.2s; }
+
+        .education-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .education-card h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .degree {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .university {
+            color: var(--text-gray);
+        }
+
+        /* Certification */
+        .certification {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 20px var(--shadow);
+            max-width: 600px;
+            margin: 3rem auto 0;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .certification:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .certification h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .certification .date {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .certification p {
+            color: var(--text-gray);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 3rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 4/3;
+            background: var(--light-bg-2);
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 20px var(--shadow);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeInScale 0.6s ease-out both;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-item .overlay h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        /* PDF Gallery Item */
+        .gallery-item.pdf-item {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            padding: 2rem;
+        }
+        
+        .gallery-item.pdf-item .pdf-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+            color: var(--text-dark);
+            filter: grayscale(100%) brightness(0);
+        }
+        
+        .gallery-item.pdf-item .pdf-title {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .gallery-item.pdf-item .download-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            color: var(--text-dark);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-shadow: none;
+            z-index: 10;
+        }
+        
+        .gallery-item.pdf-item .download-btn svg {
+            width: 1.3rem;
+            height: 1.3rem;
+            fill: currentColor;
+        }
+
+        .gallery-item.pdf-item .download-btn:hover {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+        
+        .gallery-item.pdf-item .overlay {
+            position: static;
+            background: transparent;
+            padding: 0;
+            transform: none;
+            color: var(--text-dark);
+            text-align: left;
+            width: 100%;
+        }
+        
+        .gallery-item.pdf-item:hover .overlay {
+            transform: none;
+        }
+
+        .gallery-item .overlay p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .gallery-placeholder {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--light-bg);
+            border-radius: 15px;
+            border: 2px dashed var(--border-color);
+            color: var(--text-gray);
+        }
+
+        .gallery-placeholder p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .gallery-placeholder .folder-path {
+            font-family: 'Courier New', monospace;
+            background: var(--light-bg-2);
+            padding: 1rem;
+            border-radius: 8px;
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox-prev {
+            left: -70px;
+        }
+
+        .lightbox-next {
+            right: -70px;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.2);
+            z-index: 1001;
+        }
+
+        .scroll-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .hero .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+
+            .timeline-item::before {
+                left: -35px !important;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .lightbox-nav {
+                display: none;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    <div class="scroll-indicator">
+        <div class="scroll-progress" id="scrollProgress"></div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#summary">Summary</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Sanidhya Tiwari</h1>
+            <p class="subtitle">Public Relations & Digital Communication Professional</p>
+            <p style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeInUp 1s ease-out 0.4s both;">
+                Crafting compelling narratives and building meaningful connections through strategic communication
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C8.686 2 6 4.686 6 8c0 4.418 6 12 6 12s6-7.582 6-12c0-3.314-2.686-6-6-6zm0 8.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"></path>
+                        </svg>
+                    </span>
+                    <span>Delhi, India</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l1.82-1.82a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v2.84a1 1 0 01-1 1A17 17 0 013 6a1 1 0 011-1h2.84a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-1.55 1.55z"></path>
+                        </svg>
+                    </span>
+                    <a href="tel:+919369539605">+919369539605</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 5a2 2 0 012-2h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5zm2 0v.217l7 4.2 7-4.2V5H5zm14 2.383l-6.553 3.932a1 1 0 01-1.014 0L5 7.383V19h14V7.383z"></path>
+                        </svg>
+                    </span>
+                    <a href="mailto:tsanidhya01@gmail.com">tsanidhya01@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 6a2 2 0 012-2h3V3a1 1 0 011-1h4a1 1 0 011 1v1h3a2 2 0 012 2v3h-2V8H6v1H4V6zm2 4h12a2 2 0 012 2v7a2 2 0 01-2 2H6a2 2 0 01-2-2v-7a2 2 0 012-2zm6 2a2 2 0 00-2 2v1H6v-1h12v1h-4v-1a2 2 0 00-2-2zM10 4v1h4V4h-4z"></path>
+                        </svg>
+                    </span>
+                    <a href="https://linkedin.com/in/sanidhya-tiwari-43b48225a" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <a href="#summary" class="cta-button">Explore My Work</a>
+        </div>
+    </section>
+
+    <section id="summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <div class="summary">
+            <p>Motivated and detail-oriented Public Relations and Digital Communication professional with a strong foundation in Corporate Communication Management and English Literature. Skilled in media relations, press release writing, digital storytelling, and campaign execution, with hands-on experience in AI-assisted content creation, SEO, and brand reputation management. Passionate about using strategic communication to strengthen brand visibility, build audience trust, and drive engagement across digital platforms.</p>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">May 2025 - Nov 2025</div>
+                <div class="timeline-title">Business Development Associate</div>
+                <div class="timeline-company">Urban Company, Delhi</div>
+                <ul class="timeline-list">
+                    <li>Onboarded and managed salon professionals to expand service supply.</li>
+                    <li>Negotiated with partners, achieving consistent acquisition & revenue targets.</li>
+                    <li>Conducted media and competitor research to identify new service opportunities and communication angles.</li>
+                    <li>Designed marketing creatives and newsletters using Canva to increase partner engagement.</li>
+                    <li>Implemented AI tools (ChatGPT, Sora, Perplexity AI) to automate content generation and reporting workflows.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Jun 2023 - Apr 2025</div>
+                <div class="timeline-title">Business Development Associate</div>
+                <div class="timeline-company">Urban Company, Delhi</div>
+                <ul class="timeline-list">
+                    <li>Continued excellence in business development and partner management.</li>
+                    <li>Maintained strong performance in acquisition and revenue generation.</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Dec 2022 - May 2023</div>
+                <div class="timeline-title">Web Development & Digital Marketing Intern</div>
+                <div class="timeline-company">Dropout Digital Software Solution</div>
+                <ul class="timeline-list">
+                    <li>Supported Instagram and LinkedIn marketing initiatives to improve engagement rates.</li>
+                    <li>Applied AI tools (ChatGPT, Writesonic) for blog writing, keyword research, and campaign ideation.</li>
+                    <li>Gained knowledge in SEO, Instagram marketing, and digital audience engagement.</li>
+                    <li>Conducted competitor benchmarking and performance analytics to enhance campaigns.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <h3>Master's Degree</h3>
+                <div class="degree">Corporate Communication Management</div>
+                <div class="university">Banaras Hindu University</div>
+            </div>
+            <div class="education-card">
+                <h3>Bachelor's Degree</h3>
+                <div class="degree">B.A. English Honours</div>
+                <div class="university">Banaras Hindu University</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Public Relations & Communication</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Media Relations</span>
+                    <span class="skill-tag">Press Release Writing</span>
+                    <span class="skill-tag">Stakeholder Communication</span>
+                    <span class="skill-tag">Crisis Response</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Digital Marketing & SEO</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Content Creation</span>
+                    <span class="skill-tag">Social Media Management</span>
+                    <span class="skill-tag">Keyword Optimization</span>
+                    <span class="skill-tag">Analytics Tracking</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>AI & Tech Tools</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">ChatGPT</span>
+                    <span class="skill-tag">Sora</span>
+                    <span class="skill-tag">Writesonic</span>
+                    <span class="skill-tag">Perplexity AI</span>
+                    <span class="skill-tag">WordPress</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Adobe InDesign</span>
+                    <span class="skill-tag">MS Office</span>
+                    <span class="skill-tag">Excel (Pivot Tables)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Creativity</span>
+                    <span class="skill-tag">Collaboration</span>
+                    <span class="skill-tag">Adaptability</span>
+                    <span class="skill-tag">Analytical Thinking</span>
+                    <span class="skill-tag">Time Management</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">English (Fluent)</span>
+                    <span class="skill-tag">Hindi (Native)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2 class="section-title">Work Gallery</h2>
+        <div class="gallery">
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Gallery items will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="certification">
+            <h3>Content Writing (SEO & Copywriting)</h3>
+            <div class="date">Udemy - December 2024</div>
+            <p>This Course gave me essential skills to create engaging, impactful, and audience-focused content.</p>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightboxPrev">&#8249;</span>
+        <div class="lightbox-content">
+            <img id="lightboxImage" src="" alt="">
+        </div>
+        <span class="lightbox-nav lightbox-next" id="lightboxNext">&#8250;</span>
+    </div>
+
+    <script>
+        // Gallery images configuration
+        let galleryImages = [];
+        const workDirectory = 'work/';
+        
+        // Load gallery images from JSON file
+        async function loadGallery() {
+            const galleryGrid = document.getElementById('galleryGrid');
+            
+            try {
+                // Try to load gallery images from JSON file
+                const response = await fetch('gallery-images.json');
+                if (response.ok) {
+                    galleryImages = await response.json();
+                }
+            } catch (error) {
+                console.log('Gallery JSON not found or error loading. Using empty gallery.');
+            }
+            
+            // If no images found, show empty message
+            if (galleryImages.length === 0) {
+                galleryGrid.innerHTML = '';
+            } else {
+                // Clear grid first
+                galleryGrid.innerHTML = '';
+                
+                // Load each file (image or PDF)
+                galleryImages.forEach((item, index) => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = item.type === 'pdf' ? 'gallery-item pdf-item' : 'gallery-item';
+                    galleryItem.style.animationDelay = `${index * 0.1}s`;
+                    
+                    if (item.type === 'pdf') {
+                        // Handle PDF files
+                        const downloadBtn = document.createElement('a');
+                        downloadBtn.href = item.src;
+                        downloadBtn.download = '';
+                        downloadBtn.className = 'download-btn';
+                        downloadBtn.innerHTML = `
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3a1 1 0 011 1v9.586l2.293-2.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L11 13.586V4a1 1 0 011-1zm-7 15a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H6a1 1 0 01-1-1v-2z"></path>
+                            </svg>
+                        `;
+                        downloadBtn.title = 'Download PDF';
+                        
+                        const overlay = document.createElement('div');
+                        overlay.className = 'overlay';
+                        overlay.innerHTML = `
+                            <div class="pdf-icon">📄</div>
+                            <div class="pdf-title">${item.title || 'PDF Document'}</div>
+                            ${item.description ? `<p style="font-size: 0.95rem; color: var(--text-dark); margin-top: 0.5rem; line-height: 1.5;">${item.description}</p>` : ''}
+                        `;
+                        galleryItem.appendChild(overlay);
+                        galleryItem.appendChild(downloadBtn);
+                        galleryItem.onclick = (e) => {
+                            // Don't open lightbox for PDFs, just allow download
+                            if (e.target.closest('.download-btn')) {
+                                e.stopPropagation();
+                            }
+                        };
+                    } else {
+                        // Handle image files
+                        galleryItem.onclick = () => openLightbox(index);
+                        
+                        const imgElement = document.createElement('img');
+                        imgElement.src = item.src;
+                        imgElement.alt = item.title || 'Gallery Image';
+                        imgElement.onerror = function() {
+                            this.style.display = 'none';
+                            galleryItem.style.background = 'var(--light-bg-2)';
+                            galleryItem.innerHTML = `
+                                <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-gray);">
+                                    <p>Image not found</p>
+                                </div>
+                            `;
+                        };
+                        
+                        if (item.title) {
+                            const overlay = document.createElement('div');
+                            overlay.className = 'overlay';
+                            overlay.innerHTML = `
+                                <h4>${item.title}</h4>
+                                ${item.description ? `<p>${item.description}</p>` : ''}
+                            `;
+                            galleryItem.appendChild(imgElement);
+                            galleryItem.appendChild(overlay);
+                        } else {
+                            galleryItem.appendChild(imgElement);
+                        }
+                    }
+                    
+                    galleryGrid.appendChild(galleryItem);
+                });
+            }
+        }
+        
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        
+        function getImageIndices() {
+            // Get only image indices (skip PDFs)
+            return galleryImages.map((item, index) => item.type === 'image' ? index : null).filter(i => i !== null);
+        }
+        
+        function openLightbox(index) {
+            if (galleryImages.length === 0) return;
+            // Only open lightbox for images, not PDFs
+            if (galleryImages[index].type === 'pdf') return;
+            
+            currentImageIndex = index;
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function nextImage() {
+            if (galleryImages.length === 0) return;
+            const imageIndices = getImageIndices();
+            if (imageIndices.length === 0) return;
+            
+            const currentPos = imageIndices.indexOf(currentImageIndex);
+            const nextPos = (currentPos + 1) % imageIndices.length;
+            currentImageIndex = imageIndices[nextPos];
+            document.getElementById('lightboxImage').src = galleryImages[currentImageIndex].src;
+        }
+        
+        function prevImage() {
+            if (galleryImages.length === 0) return;
+            const imageIndices = getImageIndices();
+            if (imageIndices.length === 0) return;
+            
+            const currentPos = imageIndices.indexOf(currentImageIndex);
+            const prevPos = (currentPos - 1 + imageIndices.length) % imageIndices.length;
+            currentImageIndex = imageIndices[prevPos];
+            document.getElementById('lightboxImage').src = galleryImages[currentImageIndex].src;
+        }
+        
+        // Event listeners
+        document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+        document.getElementById('lightboxNext').addEventListener('click', nextImage);
+        document.getElementById('lightboxPrev').addEventListener('click', prevImage);
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+        
+        // Scroll Progress Indicator
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercent + '%';
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                scrollProgress.style.width = scrolled + '%';
+            }
+        });
+        
+        // Load gallery on page load
+        loadGallery();
+    </script>
+</body>
+</html>
