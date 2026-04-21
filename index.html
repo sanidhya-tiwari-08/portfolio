@@ -900,6 +900,159 @@
         html {
             scroll-behavior: smooth;
         }
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .news-card {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out both;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .news-card:nth-child(2) { animation-delay: 0.2s; }
+
+        .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .news-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            width: fit-content;
+        }
+
+        .news-title {
+            color: var(--text-dark);
+            font-size: 1.4rem;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .news-card:hover .news-title {
+            color: var(--primary-color);
+        }
+
+        .news-excerpt {
+            color: var(--text-gray);
+            font-size: 1rem;
+            flex-grow: 1;
+        }
+
+        .news-read-more {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .news-card:hover .news-read-more {
+            gap: 1rem;
+        }
+
+        /* Article Modal */
+        .article-modal-overlay {
+            display: none;
+            position: fixed;
+            z-index: 2500;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .article-modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .article-modal-container {
+            background: var(--light-bg);
+            width: 90%;
+            max-width: 800px;
+            max-height: 85vh;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideIn 0.4s ease-out;
+        }
+
+        .article-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            z-index: 10;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+        
+        .article-close:hover {
+            color: var(--accent-color);
+        }
+
+        .article-content {
+            padding: 3rem 2.5rem;
+            overflow-y: auto;
+            color: var(--text-dark);
+        }
+
+        .article-content h1, .article-content h2, .article-content h3 {
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .article-content h1 { font-size: 2rem; margin-top: 0; }
+        .article-content h2 { font-size: 1.5rem; }
+
+        .article-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .article-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+        
+        .article-content ul li {
+            margin-bottom: 0.5rem;
+        }
     </style>
 </head>
 <body>
@@ -915,6 +1068,7 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#skills">Skills</a></li>
+            <li><a href="#news">News & Articles</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li><a href="#certifications">Certifications</a></li>
         </ul>
@@ -1075,6 +1229,26 @@
         </div>
     </section>
 
+    <section id="news">
+        <h2 class="section-title">News & Articles</h2>
+        <div class="news-grid" id="newsGrid">
+            <!-- Article 1 -->
+            <div class="news-card" onclick="openArticleModal('sustainability')">
+                <div class="news-category">Environment</div>
+                <h3 class="news-title">Sustainability That Actually Matters (Not Just Marketing)</h3>
+                <p class="news-excerpt">Sustainability beyond greenwashing is about truth, not tricks. Discover what real sustainability looks like when it focuses on action rather than just aesthetics.</p>
+                <div class="news-read-more">Read Article <span>&rarr;</span></div>
+            </div>
+            <!-- Article 2 -->
+            <div class="news-card" onclick="openArticleModal('aiplane')">
+                <div class="news-category">Technology PR</div>
+                <h3 class="news-title">इंडिया AI इम्पैक्ट समिट: गलगोटियास का "AI प्लेन" विवाद</h3>
+                <p class="news-excerpt">चीनी रोबोडॉग के बाद अब थर्माकोल से बना तथाकथित “AI प्लेन” सोशल मीडिया पर चर्चा और मजाक का विषय बन गया है। जानिए क्या है पूरा मामला और इसके पीआर मायने।</p>
+                <div class="news-read-more">Read Article <span>&rarr;</span></div>
+            </div>
+        </div>
+    </section>
+
     <section id="gallery">
         <h2 class="section-title">Work Gallery</h2>
         <div class="gallery">
@@ -1092,6 +1266,14 @@
             <p>This Course gave me essential skills to create engaging, impactful, and audience-focused content.</p>
         </div>
     </section>
+
+    <!-- Article Modal -->
+    <div class="article-modal-overlay" id="articleModal">
+        <div class="article-modal-container">
+            <span class="article-close" onclick="closeArticleModal()">&times;</span>
+            <div class="article-content" id="articleContent"></div>
+        </div>
+    </div>
 
     <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
@@ -1318,6 +1500,105 @@
         
         // Load gallery on page load
         loadGallery();
+
+        // Articles Content Source
+        const articlesData = {
+            'sustainability': `
+                <h1>Sustainability That Actually Matters (Not Just Marketing)</h1>
+                <p><strong>Sustainability</strong> sounds like a big word, but at its heart it’s very simple: we live in a way that meets our needs today, without stealing from the future. It means protecting nature, treating people fairly, and still letting communities and economies grow without pushing the planet past its breaking point. Yet in many ads and product labels, “sustainability” feels fake. It feels like a sticker slapped on a box, not a real promise.</p>
+                
+                <h2>The Problem: Greenwashing</h2>
+                <p>Greenwashing is when brands pretend to be “green” just to sell more, instead of changing what they really do. They use words like “eco‑friendly,” “all‑natural,” or “conscious,” mix them with soft colours and tree icons, and expect us to trust them without proof.</p>
+                <ul>
+                    <li>The product may still rely on pollution‑heavy processes.</li>
+                    <li>The supply chain may still exploit workers or ecosystems.</li>
+                    <li>The company may spend more on marketing its image than on reducing its real impact.</li>
+                </ul>
+                <p>It’s not about small mistakes; it’s about choosing style over substance every time the camera is on.</p>
+                
+                <h2>What Real Sustainability Looks Like</h2>
+                <p>Real sustainability starts with honesty, not slogans. Brands that take it seriously don’t just say things; they show them. For example:</p>
+                <ul>
+                    <li>They share clear numbers: how much water they saved, how much carbon their factories cut, how much waste they diverted from landfills.</li>
+                    <li>They let independent groups check their work through certifications or audits, instead of hiding behind vague promises.</li>
+                    <li>They connect their actions to people’s lives: cleaner air in nearby towns, safer working conditions, more stable wages for farmers and factory workers.</li>
+                </ul>
+                <p>This kind of change often isn’t as flashy, but it’s far more meaningful.</p>
+
+                <h2>From Marketing to Meaning</h2>
+                <p>Beyond greenwashing lies a quieter, deeper idea: sustainability as a way of living, not just a selling point.</p>
+                <p><strong>For companies, that means:</strong></p>
+                <ul>
+                    <li>Owning mistakes instead of polishing them with PR.</li>
+                    <li>Choosing long‑term impact over short‑term profits.</li>
+                    <li>Making decisions that protect both the environment and the people who depend on it.</li>
+                </ul>
+                <p><strong>For us as consumers, it means:</strong></p>
+                <ul>
+                    <li>Asking what lies behind the label, not just trusting the colour of the logo.</li>
+                    <li>Supporting brands that are transparent, even if they’re not perfect.</li>
+                    <li>Accepting that small, honest steps taken together matter more than a single “perfect” brand.</li>
+                </ul>
+
+                <h2>A Simple Closing Thought</h2>
+                <p>Sustainability beyond greenwashing is about truth, not tricks. It’s about companies and people admitting that some habits are hurting the planet and choosing, slowly and honestly, to change them. When brands do this not behind a camera, but behind the scenes it gives the rest of us a chance to join them in building a future that actually lasts, not just looks good in an ad.</p>
+            `,
+            'aiplane': `
+                <h1>इंडिया AI इम्पैक्ट समिट: गलगोटियास का "AI प्लेन" विवाद</h1>
+                <p>इंडिया AI इम्पैक्ट समिट के दौरान गलगोटियास यूनिवर्सिटी लगातार चर्चा में बनी हुई है। पहले चीनी रोबोडॉग को अपना इनोवेशन बताने को लेकर सवाल उठे, अब वहीं लगा थर्माकोल से बना तथाकथित <strong>“AI प्लेन”</strong> सोशल मीडिया पर हंसी का कारण बन गया है।</p>
+                
+                <h2>थर्माकोल का ‘AI प्लेन’ और सोशल मीडिया की चुटकी</h2>
+                <p>समिट में जब यूनिवर्सिटी का स्टॉल खाली कराया गया, तो वहां थर्माकोल से तैयार एक विमाननुमा मॉडल पड़ा रह गया। लोगों ने मौके पर ही उसकी फोटो और वीडियो बनाकर इंटरनेट पर डाल दिए, जिन पर यूज़र्स ने तंज कसते हुए लिखा कि यह प्लेन तो पाकिस्तान को भी “उड़ा” सकता है। कई यूज़र्स ने इसे सीरियस टेक्नोलॉजी के बजाय सिर्फ दिखावे की कोशिश बताया।</p>
+                
+                <h2>चीनी रोबोडॉग से शुरू हुआ विवाद</h2>
+                <p>पूरा मामला तब सुर्खियों में आया, जब गलगोटियास यूनिवर्सिटी ने अपने स्टॉल पर एक रोबोटिक डॉग को इस तरह पेश किया जैसे वह उनका खुद का डेवलप किया हुआ प्रोजेक्ट हो। टेक विशेषज्ञों ने तुरंत पहचान लिया कि यह यूनिट्री कंपनी का Go2 मॉडल है, जिसे विदेशों में पहले से रिसर्च और ट्रेनिंग के लिए इस्तेमाल किया जा रहा है। जैसे ही यह बात सामने आई, आयोजकों ने कड़ा रुख अपनाया, स्टॉल की सप्लाई बंद की गई और यूनिवर्सिटी को जगह खाली करनी पड़ी।</p>
+                
+                <h2>यूनिवर्सिटी की प्रतिक्रिया और सफाई</h2>
+                <p>विवाद बढ़ने पर यूनिवर्सिटी ने आधिकारिक बयान जारी कर खेद व्यक्त किया और गलती का ठीकरा इवेंट पर मौजूद अपने प्रतिनिधि पर फोड़ दिया। उनका कहना था कि प्रतिनिधि को प्रोडक्ट के स्रोत और तकनीकी विवरण की पूरी व सही जानकारी नहीं थी, और इसी वजह से उसने कैमरे के सामने गलत बात कह दी। यूनिवर्सिटी ने दावा किया कि उनका असली उद्देश्य छात्रों को AI और रोबोटिक्स के ज़रिए प्रेरित करना है, न कि किसी और की तकनीक को अपना बताना।</p>
+                
+                <h2>प्रोफेसर के बयान से बढ़ी परेशानी</h2>
+                <p>कम्युनिकेशन विभाग की प्रोफेसर नेहा सिंह ने डीडी न्यूज़ से बातचीत में कहा कि यह रोबोट गलगोटियास यूनिवर्सिटी के सेंटर ऑफ एक्सीलेंस की देन है। इस बयान के बाद आलोचना और तेज हो गई, क्योंकि वीडियो में साफ लग रहा था कि डिवाइस बाहरी कंपनी का है। बाद में प्रोफेसर ने सफाई दी कि शोरगुल, समय की कमी और बातचीत के दौरान हुई गड़बड़ियों के कारण बात सही तरीके से रखी नहीं जा सकी और गलतफहमी पैदा हो गई।</p>
+                
+                <h2>सरकार का सख्त संदेश</h2>
+                <p>इलेक्ट्रॉनिक्स और आईटी मंत्रालय के अधिकारियों ने कहा कि सरकार नए प्रयोगों और इनोवेशन को प्रोत्साहित करती है, लेकिन किसी भी तरह की भ्रामक प्रस्तुति बर्दाश्त नहीं की जाएगी। आईटी सचिव एस. कृष्णन ने साफ कहा कि अगर कोई संस्था किसी तैयार प्रोडक्ट को अपना बताकर दिखाती है और लोगों में गलत धारणा बनाती है, तो ऐसे मामलों पर कार्रवाई होगी।</p>
+                <p><strong>रोबोडॉग से लेकर थर्माकोल प्लेन तक हुई घटनाएं यह याद दिलाती हैं कि टेक इवेंट में केवल मॉडल दिखाना काफी नहीं, ईमानदार क्रेडिट और पारदर्शिता भी उतनी ही ज़रूरी है।</strong></p>
+            `
+        };
+
+        // Article Modal Functions
+        function openArticleModal(id) {
+            const modal = document.getElementById('articleModal');
+            const content = document.getElementById('articleContent');
+            
+            if (articlesData[id]) {
+                content.innerHTML = articlesData[id];
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('articleModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close article modal on outside click
+        document.getElementById('articleModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeArticleModal();
+            }
+        });
+        
+        // Add Escape key handler for article modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const articleModal = document.getElementById('articleModal');
+                if (articleModal.classList.contains('active')) {
+                    closeArticleModal();
+                }
+            }
+        });
     </script>
 </body>
 </html>
